@@ -3,26 +3,27 @@ package com.codder199912.game1
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button // Импорт для кнопки
+import android.widget.ImageButton
+import android.widget.PopupMenu
 import android.widget.Toast // Импорт для всплывающих сообщений
 import androidx.appcompat.app.AppCompatActivity
 
 class Game : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.main_activity)
-        val btn1 = findViewById<Button>(R.id.btn1)
-        val btn2 = findViewById<Button>(R.id.btn2)
-        var coast = -1
 
-        btn1.setOnClickListener {
-            btn1.text = (coast + 1).toString()
-            coast = coast + 1
-        }
+        val btnToday = findViewById<Button>(R.id.btnToday)
+        val btnStatistics = findViewById<Button>(R.id.btnStatistic)
+        val btnProfile = findViewById<ImageButton>(R.id.btnProfile)
+        val btnMenu = findViewById<ImageButton>(R.id.btnMenu)
+        var regBool: Boolean = false
 
-        btn2.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
+//        if (regBool == false) {
+        btnProfile.setOnClickListener {
+            val intent = Intent(this, Registration::class.java)
             startActivity(intent)
+//            }
         }
     }
 }
